@@ -33,26 +33,40 @@ int main() {
 
 
 /*
-procedure FindMax(A : array of n elements)
-min ← A[0]
-for i ← 1 to n − 1 do
-if A[i] > min then
-min ← A[i]
-end if
-end for
-return min
+Pseudocode:
+procedure FindMin(A, n)
+    min ← A[0]
+    indexMin ← 0
+    for i ← 1 to n - 1
+        if A[i] < min
+            min ← A[i]
+            indexMin ← i
+        end if
+    end for
+    return min, indexMin
 end procedure
 
 Pseudocode          Cost    Tmin    Tmax
-procedure FindMax   C1      1       1
-max ← A[0]          C2      1       1
-for i ← 1 to n − 1  C3      n       n
-if A[i] > max       C4      n-1     n-1
-max ← A[i]          C5      0       n-1
-end if              C6      n-1     n-1
-end for             C7      n       n
-return max          C8      1       1
-end procedure       C9      1       1
+procedure FindMin   C1      1       1
+min ← A[0]          C1      1       1
+indexMin = 0        C3      n       n
+for i ← 1 to n-1    C4      n       n
+if A[i] < min       C5      n-1     n-1
+min ← A[i]          C6      0       n-1
+indexMin ← i        C7      0       n-1
+end if              C8      n-1     n-1
+end for             C9      n       n
+return min          c10     1       1
+end procedure       C11     1       1
 Total waktu (Tn)            O(n)    O(n)
 
+Tmin(n) =
+C1 + C2 + C3 + C4(n) + C5(n-1) + C8(n-1) + C9(n) + C10 + C11
+Tmin(n) : O(n)
+
+Tmax(n) =
+C1 + C2 + C3 + C4(n) + C5(n-1)
++ C6(n-1) + C7(n-1)
++ C8(n-1) + C9(n) + C10 + C11
+Tmax(n) : O(n)
 */
